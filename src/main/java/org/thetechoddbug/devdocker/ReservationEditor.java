@@ -1,4 +1,4 @@
-package org.opensouthcode;
+package org.thetechoddbug.devdocker;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
