@@ -1,4 +1,4 @@
-package org.opensouthcode;
+package org.thetechoddbug.devdocker;
 
 import java.util.Collection;
 import java.util.List;

@@ -1,4 +1,4 @@
-//package org.opensouthcode;
+//package org.thetechoddbug.devdocker;
 //
 //import static com.jayway.restassured.RestAssured.when;
 //

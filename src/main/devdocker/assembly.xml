@@ -6,7 +6,7 @@
     <dependencySet>
       <useProjectArtifact>true</useProjectArtifact>
       <includes>
-        <include>org.opensouthcode:devdocker</include>
+        <include>org.thetechoddbug.devdocker:devdocker</include>
       </includes>
       <outputDirectory>.</outputDirectory>
       <outputFileNameMapping>devdocker.jar</outputFileNameMapping>

@@ -1,9 +1,7 @@
-package org.opensouthcode;
+package org.thetechoddbug.devdocker;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-//import io.fabric8.docker.sample.demo.LogService;
 
 @SpringBootApplication
 public class DevdockerApplication {

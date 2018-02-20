@@ -7,7 +7,7 @@
     <relativePath>pom.xml</relativePath>
   </parent>
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.opensouthcode</groupId>
+  <groupId>org.thetechoddbug.devdocker</groupId>
   <artifactId>devdocker</artifactId>
   <name>devdocker</name>
   <version>0.0.1-SNAPSHOT</version>
@@ -59,7 +59,7 @@
             </image>
             <image>
               <alias>service</alias>
-              <name>opensouthcode/${project.artifactId}-opensouthcode:${project.version}</name>
+              <name>hackdays/${project.artifactId}-hackdays:${project.version}</name>
               <build>
                 <from>java:8u40</from>
                 <assembly>
@@ -110,7 +110,7 @@
             <configuration>
               <transformer>
                 <manifestEntries>
-                  <mainClass>org.opensouthcode.DevdockerApplication</mainClass>
+                  <mainClass>org.thetechoddbug.devdocker.DevdockerApplication</mainClass>
                 </manifestEntries>
               </transformer>
             </configuration>
