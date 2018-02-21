@@ -72,78 +72,17 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-			<plugin>
-				<groupId>io.fabric8</groupId>
-				<artifactId>docker-maven-plugin</artifactId>
-				<version>${docker.maven.plugin.fabric8.version}</version>
-				<configuration>
-					<logDate>default</logDate>
-					<autoPull>true</autoPull>
-					<images>
-						<image>
-							<alias>db</alias>
-							<name>postgres:10</name>
-							<run>
-								<wait>
-									<log>database system is ready to accept connections</log>
-									<time>20000</time>
-								</wait>
-								<log>
-									<prefix>DB</prefix>
-									<color>yellow</color>
-								</log>
-							</run>
-						</image>
-						<image>
-							<alias>appservice</alias>
-							<name>hackdays/${project.artifactId}-hackdays:${project.version}</name>
-							<build>
-								<from>java:8u40</from>
-								<assembly>
-									<descriptorRef>artifact-with-dependencies</descriptorRef>
-								</assembly>
-								<ports>
-									<port>8080</port>
-								</ports>
-								<cmd>java -Djava.security.egd=file:/dev/./urandom -jar /maven/${project.build.finalName}.${artifact.extension}</cmd>
-							</build>
-							<run>
-								<ports>
-									<port>tomcat.port:8080</port>
-								</ports>
-								<wait>
-									<url>http://${docker.host.address}:${tomcat.port}</url>
-									<time>300000</time>
-								</wait>
-								<links>
-									<link>db:db</link>
-								</links>
-								<log>
-									<prefix>APP</prefix>
-									<color>cyan</color>
-								</log>
-							</run>
-						</image>
-					</images>
-				</configuration>
-				<executions>
-					<execution>
-						<id>start</id>
-						<phase>pre-integration-test</phase>
-						<goals>
-							<goal>build</goal>
-							<goal>start</goal>
-						</goals>
-					</execution>
-					<execution>
-						<id>stop</id>
-						<phase>post-integration-test</phase>
-						<goals>
-							<goal>stop</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
+		    <plugin>
+		        <groupId>com.spotify</groupId>
+		        <artifactId>dockerfile-maven-plugin</artifactId>
+		        <version>1.3.6</version>
+		        <configuration>
+		            <repository>hackdays/${project.artifactId}</repository>
+					<buildArgs>
+						<JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
+					</buildArgs>
+		        </configuration>
+		    </plugin>
 			<plugin>
 				<artifactId>maven-failsafe-plugin</artifactId>
 				<executions>
