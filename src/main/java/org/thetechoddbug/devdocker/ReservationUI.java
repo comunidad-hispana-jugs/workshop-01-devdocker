@@ -43,6 +43,7 @@ public class ReservationUI extends UI {
 		this.ReservationGrid = new Grid<>(Reservation.class);
 		this.ReservationFilter = new TextField();
 		this.addNewReservationBtn = new Button("New Reservation", VaadinIcons.PLUS);
+		this.addNewReservationBtn.setId("newReservationButton");
 	}
 
 	@Override
