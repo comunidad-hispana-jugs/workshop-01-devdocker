@@ -1,4 +1,5 @@
 # workshop-01-devdocker
-Desarrollando en Java con Docker como parte del ciclo de vida de desarrollo habitual. Demostración de que trabajar con
-docker no supone cambiar la forma en la que desarrollamos con Java.
+
+Taller sobre desarrollo en Java con Docker de forma integrada en el ciclo de vida habitual con Maven.
+
 Las instrucciones paso a paso para el taller se encuentran en este documento: http://bit.do/hackdayscomunidadhispanajava
