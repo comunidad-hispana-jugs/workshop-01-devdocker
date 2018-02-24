@@ -1,23 +1,20 @@
 -- This DDL is used by flyway to initially setup the table
 -- which will hold the reservation entries
---
-
-
-CREATE SEQUENCE reservation_id_seq;
 
 -- Simple table for holding reservations
-create table public.reservation (
+create table reservation (
  -- id for this table
- 	id integer NOT NULL DEFAULT nextval('reservation_id_seq'),
+    id integer not null generated always as identity (start with 1, increment BY 1),
  -- reservation owner
-    reservation_owner varchar(300) null,
+    reservation_owner varchar(300),
  -- restaurant name
-    restaurant_name varchar(300) null,
+    restaurant_name varchar(300),
  -- reservation date
-    reservation_date date null,
+    reservation_date date,
  -- diners number
-    diners_number varchar(5) null,
+    diners_number varchar(5),
  -- confirmed reservation
-    confirmed boolean
+    confirmed boolean,
+ -- the primary key
+    constraint primary_key primary key (id)
 );
-ALTER SEQUENCE reservation_id_seq OWNED BY Reservation.id;
